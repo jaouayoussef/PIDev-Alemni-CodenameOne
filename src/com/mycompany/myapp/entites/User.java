@@ -1,23 +1,73 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.myapp.entites;
 
 /**
  *
- * @author pc
+ * @author louay
  */
-public class User {
+public class user {
 
-    public User(int id, int age, int tele, String nom, String email, String nomImg) {
-        this.id = id;
-        this.age = age;
-        this.tele = tele;
-        this.nom = nom;
+    private int id;
+    private String first_name;
+    private String last_name;
+    private String email;
+    private String picture;
+    private String password;
+    private String gender;
+
+    public user(String first_name, String last_name, String email, String picture, String password, String gender) {
+        this.first_name = first_name;
         this.email = email;
-        this.nomImg = nomImg;
+        this.last_name = last_name;
+        this.picture = picture;
+        this.password = password;
+        this.gender = gender;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getFirstName() {
+        return first_name;
+    }
+
+    public void setFirstName(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLastName() {
+        return last_name;
+    }
+
+    public void setLastName(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public user() {
+    }
+
+    public user(int id) {
+        this.id = id;
+    }
+
+    public user(String email) {
+        this.email = email;
     }
 
     public int getId() {
@@ -28,30 +78,6 @@ public class User {
         this.id = id;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getTele() {
-        return tele;
-    }
-
-    public void setTele(int tele) {
-        this.tele = tele;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -60,20 +86,33 @@ public class User {
         this.email = email;
     }
 
-    public String getNomImg() {
-        return nomImg;
+    public String getPicture() {
+        return picture;
     }
 
-    public void setNomImg(String nomImg) {
-        this.nomImg = nomImg;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", age=" + age + ", tele=" + tele + ", nom=" + nom + ", email=" + email + ", nomImg=" + nomImg + '}';
+        return "user{" + "id=" + id + ", adresse=" + email + ", photoDeProfil=" + picture + '}';
     }
 
+    public user(int id, String email, String picture, String first_name, String last_name, String gender) {
+        this.id = id;
+        this.email = email;
+        this.picture = picture;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+    }
 
-    private int id,age,tele;
-    private String nom,email,nomImg ;
+    public user(String email, String picture, String first_name, String last_name, String gender) {
+        this.email = email;
+        this.picture = picture;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+    }
 }

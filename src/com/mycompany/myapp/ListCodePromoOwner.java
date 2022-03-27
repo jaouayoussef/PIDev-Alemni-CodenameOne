@@ -5,36 +5,18 @@
  */
 package com.mycompany.myapp;
 
-import com.codename1.capture.Capture;
-import com.codename1.components.ImageViewer;
-import com.codename1.components.SpanLabel;
 import com.codename1.ui.Button;
-import static com.codename1.ui.CN.CENTER;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
-import com.codename1.ui.Display;
-import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
-import com.codename1.ui.Image;
 import com.codename1.ui.Label;
-import com.codename1.ui.TextArea;
-import com.codename1.ui.TextField;
-import com.codename1.ui.URLImage;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
-import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.ui.layouts.FlowLayout;
-import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.plaf.Border;
-import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import java.io.IOException;
 import java.util.ArrayList;
 import services.ServiceCodePromoOwner;
 import com.mycompany.myapp.entites.PromoCodeOwner;
-import javax.security.auth.callback.ConfirmationCallback;
 
 /**
  *

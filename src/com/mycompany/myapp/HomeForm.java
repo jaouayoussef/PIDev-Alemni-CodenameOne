@@ -5,24 +5,15 @@
  */
 package com.mycompany.myapp;
 
-import com.codename1.io.Log;
-import com.codename1.ui.Button;
-import com.codename1.ui.Container;
 import com.codename1.ui.Form;
-import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.ui.plaf.Border;
-import com.codename1.ui.plaf.Style;
-import com.mycompany.myapp.DomaineFront;
-import com.mycompany.myapp.ListDomaines;
-import com.mycompany.myapp.AjouterDomaine;
 
 /**
  *
  * @author pc
  */
 public class HomeForm extends Form {
-    Form current;
+        Form current;
     public HomeForm(){
         current=this;
         setTitle("Alemni");
