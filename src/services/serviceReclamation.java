@@ -43,7 +43,7 @@ public class serviceReclamation {
     }
 
     public void addReclamation(reclamation reclamation) {
-        String url = Statics.BASE_URL + "reclamation/mobile/addReclamation?titre=" + reclamation.getTitre() + "&message=" + reclamation.getMessage() + "&type=" + reclamation.getType() + "&name=" + reclamation.getName() + "&email=" + reclamation.getEmail() + "&user_file=" + reclamation.getUser_file();
+        String url = Statics.BASE_URL + "/reclamation/mobile/addReclamation?titre=" + reclamation.getTitre() + "&message=" + reclamation.getMessage() + "&type=" + reclamation.getType() + "&name=" + reclamation.getName() + "&email=" + reclamation.getEmail() + "&user_file=" + reclamation.getUser_file();
         req.setUrl(url);
         req.addResponseListener((e) -> {
             String str = new String(req.getResponseData());
@@ -54,7 +54,7 @@ public class serviceReclamation {
     }
 
     public boolean deleteProduct(int id) {
-        String url = Statics.BASE_URL + "reclamation/mobile/deleteReclamation?id=" + id;
+        String url = Statics.BASE_URL + "/reclamation/mobile/deleteReclamation?id=" + id;
 
         req.setUrl(url);
         req.setPost(false);
@@ -72,7 +72,7 @@ public class serviceReclamation {
     }
 
     public void editReclamation(reclamation reclamation) {
-        String url = Statics.BASE_URL + "reclamation/mobile/editReclamation?message=" + reclamation.getMessage() + "&user_file=" + reclamation.getUser_file() + "&id=" + reclamation.getId();
+        String url = Statics.BASE_URL + "/reclamation/mobile/editReclamation?message=" + reclamation.getMessage() + "&user_file=" + reclamation.getUser_file() + "&id=" + reclamation.getId();
         req.setUrl(url);
         req.addResponseListener((e) -> {
 
@@ -86,7 +86,7 @@ public class serviceReclamation {
     public ArrayList<reclamation> showReclamations() {
         ArrayList<reclamation> result = new ArrayList<>();
 
-        String url = Statics.BASE_URL + "mobile/showReclamation";
+        String url = Statics.BASE_URL + "/reclamation/mobile/showReclamation";
         req.setUrl(url);
 
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -106,21 +106,18 @@ public class serviceReclamation {
                         //dima id fi codename one float 5outhouha
                         float id = Float.parseFloat(obj.get("id").toString());
 
-                        String titre = obj.get("titre").toString();
+                        String titre = obj.get("title").toString();
                         String message = obj.get("message").toString();
                         String type = obj.get("type").toString();
                         String name = obj.get("name").toString();
                         String email = obj.get("email").toString();
                         String user_file = obj.get("userFile").toString();
-                        String statusString = obj.get("status").toString();
                         String DateConverter = obj.get("sendingDate").toString().substring(obj.get("sendingDate").toString().indexOf("timestamp") + 10, obj.get("sendingDate").toString().lastIndexOf("}"));
 
                         Date currentTime = new Date(Double.valueOf(DateConverter).longValue() * 1000);
 
                         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                         String dateString = formatter.format(currentTime);
-
-                        int status = Integer.parseInt(statusString);
 
                         pub.setId((int) id);
                         pub.setTitre(titre);
@@ -129,7 +126,6 @@ public class serviceReclamation {
                         pub.setName(name);
                         pub.setEmail(email);
                         pub.setUser_file(user_file);
-                        pub.setStatus(status);
                         pub.setSending_date(dateString);
 
                         result.add(pub);

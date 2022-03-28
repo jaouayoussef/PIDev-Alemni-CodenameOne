@@ -70,7 +70,7 @@ public class Login extends Form {
                 Dialog.show("success", "connected", "OK", null);
 // show user profile
                 //new UserProfile(theme).show();
-                new UserProfile(this).show();
+                new HomeForm().show();
             }
         });
 

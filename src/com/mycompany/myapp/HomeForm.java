@@ -13,17 +13,29 @@ import com.codename1.ui.layouts.BoxLayout;
  * @author pc
  */
 public class HomeForm extends Form {
-        Form current;
-    public HomeForm(){
-        current=this;
+
+    Form current;
+
+    public HomeForm() {
+        current = this;
         setTitle("Alemni");
         setLayout(BoxLayout.y());
-          getToolbar().addCommandToSideMenu("Propriétaire code promo", null, ev->{new PromoCodeOwnerHome().show();});        
-        getToolbar().addCommandToSideMenu("Domaine", null, ev->{new DomaineHome().show();});
-       getToolbar().addCommandToSideMenu("Quiz", null, ev->{new quizHome().show();});
-  
+        getToolbar().addCommandToSideMenu("My profile", null, ev -> {
+            new ProfileHome().show();
+        });
+        getToolbar().addCommandToSideMenu("Propriétaire code promo", null, ev -> {
+            new PromoCodeOwnerHome().show();
+        });
+        getToolbar().addCommandToSideMenu("Domaine", null, ev -> {
+            new DomaineHome().show();
+        });
+        getToolbar().addCommandToSideMenu("Quiz", null, ev -> {
+            new quizHome().show();
+        });
+        getToolbar().addCommandToSideMenu("Reclamations", null, ev -> {
+            new ReclamationHome().show();
+        });
+
     }
-    
-    
-    
+
 }

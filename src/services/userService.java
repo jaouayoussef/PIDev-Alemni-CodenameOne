@@ -16,6 +16,7 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.SessionManager;
+import com.mycompany.myapp.entites.user;
 import java.util.Map;
 
 /**
@@ -114,7 +115,19 @@ public class userService {
         return resultat;
     }
 
-public boolean deleteProduct(int id) {
+    public void editUser(int id, String firstName, String lastName, String password) {
+        String url = Statics.BASE_URL + "/mobile/editUser?id=" + id + "&first_name=" + firstName + "&last_name=" + lastName + "&password=" + password;
+        req.setUrl(url);
+        req.addResponseListener((e) -> {
+
+            String str = new String(req.getResponseData());
+            System.out.println("data == " + str);
+        });
+
+        NetworkManager.getInstance().addToQueueAndWait(req);
+    }
+
+    public boolean deleteProduct(int id) {
         String url = Statics.BASE_URL + "/mobile/user/delete?id=" + id;
 
         req.setUrl(url);

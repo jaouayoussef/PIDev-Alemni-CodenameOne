@@ -29,9 +29,9 @@ public class UserProfile extends Form {
     Form current;
 
     public UserProfile(Form previous) {
-        current = this;
-        setTitle("Mon profile");
+        setTitle("My profile");
         setLayout(BoxLayout.y());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
 
         Button editProfile = new Button("Edit");
         editProfile.getStyle().setBgColor(0xffffff);
@@ -42,6 +42,7 @@ public class UserProfile extends Form {
         editProfile.getStyle().setMargin(2, 2, 2, 2);
         editProfile.addActionListener((l) -> {
             // go to edit profile form
+            new EditProfile(previous).show();
         });
 
         Button deleteProfile = new Button("Delete");
@@ -55,6 +56,7 @@ public class UserProfile extends Form {
             userService.getInstance().deleteProduct(SessionManager.getId());
             if (userService.getInstance().deleteProduct(SessionManager.getId())) {
                 Dialog.show("Success", "User deleted", "OK", null);
+                refreshTheme();
                 new Login(theme).show();
                 refreshTheme();
             }
