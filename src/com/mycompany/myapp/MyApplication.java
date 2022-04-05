@@ -46,7 +46,11 @@ public class MyApplication {
     }
 
     public void start() {
-        new Login(theme).show();
+        if (current != null) {
+            current.show();
+            return;
+        }
+        new LoginForm(theme).show();
     }
 
     public void stop() {
@@ -59,4 +63,5 @@ public class MyApplication {
 
     public void destroy() {
     }
+
 }

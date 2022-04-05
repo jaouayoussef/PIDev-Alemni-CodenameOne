@@ -13,14 +13,15 @@ import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
+import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
+import com.mycompany.myapp.services.userService;
 import java.util.Vector;
-import services.userService;
 
 /**
  *
@@ -30,7 +31,7 @@ public class CreateProfile extends Form {
 
     public CreateProfile(Resources theme) {
         super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
-        setUIID("Login");
+        setUIID("LoginForm");
         Container welcome = FlowLayout.encloseCenter(
                 new Label("Welcome, ", "WelcomeWhite"),
                 new Label("Create your account", "WelcomeBlue")
@@ -95,13 +96,13 @@ public class CreateProfile extends Form {
             userService.getInstance().SignUp(firstName, lastName, email, password, confirmPassword, picture, roles, gender, theme);
             if (userService.getInstance().SignUp(firstName, lastName, email, password, confirmPassword, picture, roles, gender, theme)) {
                 Dialog.show("Success", "Welcome", "OK", null);
-                new Login(theme).show();
+                new LoginForm(theme).show();
             }
         });
 
         Button login = new Button("LOGIN");
         login.addActionListener((l) -> {
-            new Login(theme).show();
+            new LoginForm(theme).show();
         });
         login.setUIID("CreateNewAccountButton");
 
